@@ -2,7 +2,8 @@ import React, { FC, useState } from 'react'
 import SelectLayout from '../../layouts/SelectLayout'
 import TextAreaLayout from '../../layouts/TextAreaLayout'
 import ModalLayout from '../../layouts/ModalLayout'
-import { InitState, TextModalProps } from '../../interfaces'
+import { InitState, TextModalProps } from '../../../interfaces'
+import { colors, columns } from '../../../mockData'
 
 const TextModal: FC<TextModalProps> = ({
   changeModalStatus,
@@ -22,6 +23,12 @@ const TextModal: FC<TextModalProps> = ({
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
 
+  const handleButtonSubmitClick = () => {
+    onSubmit(data)
+    setData(initState)
+    changeModalStatus()
+  }
+
   return (
     <ModalLayout changeModalStatus={changeModalStatus}>
       {type === 'text block' && (
@@ -29,7 +36,7 @@ const TextModal: FC<TextModalProps> = ({
           <SelectLayout
             placeholder="Choose column count"
             name="columnCount"
-            values={['1', '2', '3']}
+            values={columns}
             action={handleSelectChange}
             data={data}
           />
@@ -46,18 +53,14 @@ const TextModal: FC<TextModalProps> = ({
           <SelectLayout
             placeholder="Choose bg color"
             name="bgColor"
-            values={['white', 'orange', 'amber', 'lime', 'emerald']}
+            values={colors}
             action={handleSelectChange}
             data={data}
           />
         </>
       )}
       <button
-        onClick={() => {
-          onSubmit(data)
-          setData(initState)
-          changeModalStatus()
-        }}
+        onClick={handleButtonSubmitClick}
         className="rounded-lg p-2 bg-sky-400"
       >
         Submit

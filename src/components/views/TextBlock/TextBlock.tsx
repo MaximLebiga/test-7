@@ -3,7 +3,7 @@ import TextColumn from "../TextColumn/TextColumn";
 import {v4 as uuidv4} from "uuid"
 import TextModal from "../TextModal/TextModal";
 import { changeColumnCount } from "../../../utils";
-import { InitState } from '../../interfaces'
+import { InitState } from '../../../interfaces'
 
 
 const TextBlock: FC = () => {

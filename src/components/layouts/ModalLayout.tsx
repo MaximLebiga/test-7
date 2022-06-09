@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { createPortal } from "react-dom"
-import { ModalLayoutProps } from "../interfaces"
+import { ModalLayoutProps } from "../../interfaces"
 
 const modalRoot = document.getElementById('modal-root') as HTMLElement
 

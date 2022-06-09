@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { changeBgColor } from '../../../utils'
-import { InitState } from "../../interfaces";
+import { InitState } from "../../../interfaces";
 import TextModal from '../TextModal/TextModal'
 
 const TextColumn: FC = () => {
@@ -27,7 +27,7 @@ const TextColumn: FC = () => {
         <button
           type="button"
           onClick={() => {
-            setModalStatus(!modalStatus)
+            setModalStatus((prevState) => !prevState)
           }}
           className="rounded-lg border-2 pr-2 pl-2 border-slate-400 hover:border-sky-400"
         >

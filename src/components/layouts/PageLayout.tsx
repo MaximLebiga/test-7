@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PageLayoutProps } from "../interfaces";
+import { PageLayoutProps } from "../../interfaces";
 
 const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   return (

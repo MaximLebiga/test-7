@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TextAreaLayoutProps } from "../interfaces";
+import { TextAreaLayoutProps } from "../../interfaces";
 
 const TextAreaLayout: FC<TextAreaLayoutProps> = ({
   text,

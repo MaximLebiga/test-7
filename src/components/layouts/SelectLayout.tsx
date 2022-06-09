@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { SelectLayoutProps } from "../interfaces";
+import { SelectLayoutProps } from "../../interfaces";
 
 const SelectLayout: FC<SelectLayoutProps> = ({
   name,

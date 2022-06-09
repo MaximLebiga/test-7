@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-export interface InitState {
+export type InitState = {
   columnCount?: string
   text?: string
   bgColor?: string

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ContentLayoutProps } from '../interfaces'
+import { ContentLayoutProps } from '../../interfaces'
 
 const ContentLayout: FC<ContentLayoutProps> = ({ children, action, text }) => {
   return (
