@@ -1,8 +1,5 @@
-import { FC, ReactNode } from "react";
-
-interface PageLayoutProps {
-  children?: ReactNode
-}
+import { FC } from "react";
+import { PageLayoutProps } from "../interfaces";
 
 const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   return (

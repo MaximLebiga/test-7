@@ -1,16 +1,10 @@
-import { FC, ReactNode } from "react"
+import { FC } from "react"
 import { createPortal } from "react-dom"
-
-interface ModalLayoutProps {
-  children: ReactNode
-  changeModalStatus: () => void
-}
+import { ModalLayoutProps } from "../interfaces"
 
 const modalRoot = document.getElementById('modal-root') as HTMLElement
 
 const ModalLayout: FC<ModalLayoutProps> = ({ children, changeModalStatus }) => {
-
-
   const closeModal = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {
       changeModalStatus()

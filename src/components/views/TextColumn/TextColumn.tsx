@@ -1,12 +1,16 @@
 import { FC, useState } from "react";
 import { changeBgColor } from '../../../utils'
+import { InitState } from "../../interfaces";
 import TextModal from '../TextModal/TextModal'
 
 const TextColumn: FC = () => {
-  const [modalStatus, setModalStatus] = useState(false)
-  const [currentData, setCurrentData] = useState({ text: '', bgColor: 'white' })
+  const [modalStatus, setModalStatus] = useState<boolean>(false)
+  const [currentData, setCurrentData] = useState<InitState>({
+    text: '',
+    bgColor: 'white'
+  })
 
-  const handleSubmitButtonClick = (data: { text: string; bgColor: string }) => {
+  const handleSubmitButtonClick = (data: InitState) => {
     setCurrentData(data)
   }
 
@@ -14,7 +18,7 @@ const TextColumn: FC = () => {
     <>
       <div
         className={`p-2 border-2 rounded-lg border-slate-400 ${changeBgColor(
-          currentData.bgColor
+          currentData.bgColor || 'white'
         )}`}
       >
         <p className="break-all mb-2">
@@ -33,7 +37,7 @@ const TextColumn: FC = () => {
       {modalStatus && (
         <TextModal
           changeModalStatus={() => {
-            setModalStatus(!modalStatus)
+            setModalStatus((prevState) => !prevState)
           }}
           onSubmit={handleSubmitButtonClick}
           initState={currentData}

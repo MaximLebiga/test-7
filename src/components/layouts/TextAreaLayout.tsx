@@ -1,11 +1,5 @@
-import React, { FC } from "react";
-
-interface TextAreaLayoutProps {
-  text: string,
-  action: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  value: string
-  name: string
-}
+import { FC } from "react";
+import { TextAreaLayoutProps } from "../interfaces";
 
 const TextAreaLayout: FC<TextAreaLayoutProps> = ({
   text,

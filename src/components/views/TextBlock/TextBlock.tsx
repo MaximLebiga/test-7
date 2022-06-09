@@ -3,22 +3,25 @@ import TextColumn from "../TextColumn/TextColumn";
 import {v4 as uuidv4} from "uuid"
 import TextModal from "../TextModal/TextModal";
 import { changeColumnCount } from "../../../utils";
+import { InitState } from '../../interfaces'
+
 
 const TextBlock: FC = () => {
-  const [modalStatus, setModalStatus] = useState(false)
-  const [currentData, setCurrentData] = useState({ columnCount: '1' })
+  const [modalStatus, setModalStatus] = useState<boolean>(false)
+  const [currentData, setCurrentData] = useState<InitState>({
+    columnCount: '1'
+  })
   const [columnsId, setColumnsId] = useState<Array<string>>([uuidv4()])
 
-  const handleSubmitButtonClick = (data: { columnCount: string }) => {
-    const newColumnCount = parseInt(data.columnCount)
-    const oldColumnCount = parseInt(currentData.columnCount)
+  const handleSubmitButtonClick = (data: InitState) => {
+    const newColumnCount = parseInt(data.columnCount || '1')
+    const oldColumnCount = parseInt(currentData.columnCount || '1')
     if (newColumnCount < oldColumnCount) {
       setColumnsId((prevState) => {
         const array = [...prevState]
         array.splice(newColumnCount, oldColumnCount - newColumnCount)
         return array
-      }
-      )
+      })
     }
 
     if (newColumnCount > oldColumnCount) {
@@ -30,7 +33,7 @@ const TextBlock: FC = () => {
         return array
       })
     }
-      setCurrentData(data)
+    setCurrentData(data)
   }
 
   return (
@@ -44,13 +47,13 @@ const TextBlock: FC = () => {
       >
         Change column count
       </button>
-      <div className={`grid gap-2 max-w-xs w-full ${changeColumnCount(currentData.columnCount)}`}>
+      <div className={`grid gap-2 max-w-xs w-full ${changeColumnCount(currentData.columnCount || '1')}`}>
         {columnsId.length > 0 && columnsId.map((id) => <TextColumn key={id} />)}
       </div>
       {modalStatus && (
         <TextModal
           changeModalStatus={() => {
-            setModalStatus(!modalStatus)
+            setModalStatus((prevState) => !prevState)
           }}
           onSubmit={handleSubmitButtonClick}
           initState={currentData}

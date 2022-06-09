@@ -1,10 +1,5 @@
-import { FC, ReactNode } from 'react'
-
-interface ContentLayoutProps {
-  children?: ReactNode
-  action: () => void
-  text: string
-}
+import { FC } from 'react'
+import { ContentLayoutProps } from '../interfaces'
 
 const ContentLayout: FC<ContentLayoutProps> = ({ children, action, text }) => {
   return (

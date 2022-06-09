@@ -1,12 +1,5 @@
 import { FC, useState } from "react";
-
-interface SelectLayoutProps {
-  name: string
-  values: string[]
-  action: (event: React.ChangeEvent<HTMLSelectElement>) => void
-  placeholder: string
-  data: any
-}
+import { SelectLayoutProps } from "../interfaces";
 
 const SelectLayout: FC<SelectLayoutProps> = ({
   name,
@@ -15,7 +8,7 @@ const SelectLayout: FC<SelectLayoutProps> = ({
   placeholder,
   data,
 }) => {
-  const [currentValues] = useState(Object.values(data))
+  const [currentValues] = useState<string[]>(Object.values(data))
 
   return (
     <select

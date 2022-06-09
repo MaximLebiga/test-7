@@ -2,17 +2,7 @@ import React, { FC, useState } from 'react'
 import SelectLayout from '../../layouts/SelectLayout'
 import TextAreaLayout from '../../layouts/TextAreaLayout'
 import ModalLayout from '../../layouts/ModalLayout'
-
-interface TextModalProps {
-  changeModalStatus: () => void
-  onSubmit: (data: any) => void
-  type?: string
-  initState: {
-    text?: string
-    bgColor?: string
-    columnCount?: string
-  }
-}
+import { InitState, TextModalProps } from '../../interfaces'
 
 const TextModal: FC<TextModalProps> = ({
   changeModalStatus,
@@ -20,7 +10,7 @@ const TextModal: FC<TextModalProps> = ({
   initState,
   type
 }) => {
-  const [data, setData] = useState(initState)
+  const [data, setData] = useState<InitState>(initState)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const target = event.currentTarget
