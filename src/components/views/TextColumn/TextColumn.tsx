@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
+import { InitState } from "../../../types";
 import { changeBgColor } from '../../../utils'
-import { InitState } from "../../../interfaces";
 import TextModal from '../TextModal/TextModal'
 
 const TextColumn: FC = () => {

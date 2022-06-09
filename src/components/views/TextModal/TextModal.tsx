@@ -2,8 +2,9 @@ import React, { FC, useState } from 'react'
 import SelectLayout from '../../layouts/SelectLayout'
 import TextAreaLayout from '../../layouts/TextAreaLayout'
 import ModalLayout from '../../layouts/ModalLayout'
-import { InitState, TextModalProps } from '../../../interfaces'
+import { TextModalProps } from '../../../interfaces'
 import { colors, columns } from '../../../mockData'
+import { InitState } from '../../../types'
 
 const TextModal: FC<TextModalProps> = ({
   changeModalStatus,
