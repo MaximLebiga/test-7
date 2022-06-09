@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from "react";
-import { changeStyle } from "../../../utils";
+import { FC, useState } from "react";
+import { changeBgColor } from '../../../utils'
 import TextModal from '../TextModal/TextModal'
 
 const TextColumn: FC = () => {
@@ -10,14 +10,12 @@ const TextColumn: FC = () => {
     setCurrentData(data)
   }
 
-  useEffect(() => {
-    console.log(currentData)
-  }, [currentData])
-
   return (
     <>
       <div
-        className={`p-2 border-2 rounded-lg border-slate-400 ${changeStyle(currentData.bgColor)}`}
+        className={`p-2 border-2 rounded-lg border-slate-400 ${changeBgColor(
+          currentData.bgColor
+        )}`}
       >
         <p className="break-all mb-2">
           {currentData.text ? currentData.text : 'Empty'}

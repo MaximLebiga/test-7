@@ -41,6 +41,7 @@ const TextModal: FC<TextModalProps> = ({
             name="columnCount"
             values={['1', '2', '3']}
             action={handleSelectChange}
+            data={data}
           />
         </>
       )}
@@ -57,11 +58,16 @@ const TextModal: FC<TextModalProps> = ({
             name="bgColor"
             values={['white', 'orange', 'amber', 'lime', 'emerald']}
             action={handleSelectChange}
+            data={data}
           />
         </>
       )}
       <button
-        onClick={() => onSubmit(data)}
+        onClick={() => {
+          onSubmit(data)
+          setData(initState)
+          changeModalStatus()
+        }}
         className="rounded-lg p-2 bg-sky-400"
       >
         Submit

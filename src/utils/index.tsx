@@ -1,4 +1,4 @@
-const changeStyle = (bgColor: string) => {
+const changeBgColor = (bgColor: string) => {
   switch (bgColor) {
     case 'orange':
       return 'bg-orange-400'
@@ -13,4 +13,16 @@ const changeStyle = (bgColor: string) => {
   }
 }
 
-export {changeStyle}
+const changeColumnCount = (columnCount: string) => {
+  switch (columnCount) {
+    case '2':
+      return 'grid-cols-2'
+    case '3':
+      return 'grid-cols-3'
+
+    default:
+      return 'grid-cols-1'
+  }
+}
+
+export { changeBgColor, changeColumnCount }

@@ -2,12 +2,12 @@ import { FC, useState } from "react";
 import TextColumn from "../TextColumn/TextColumn";
 import {v4 as uuidv4} from "uuid"
 import TextModal from "../TextModal/TextModal";
+import { changeColumnCount } from "../../../utils";
 
 const TextBlock: FC = () => {
   const [modalStatus, setModalStatus] = useState(false)
   const [currentData, setCurrentData] = useState({ columnCount: '1' })
   const [columnsId, setColumnsId] = useState<Array<string>>([uuidv4()])
-
 
   const handleSubmitButtonClick = (data: { columnCount: string }) => {
     const newColumnCount = parseInt(data.columnCount)
@@ -44,9 +44,7 @@ const TextBlock: FC = () => {
       >
         Change column count
       </button>
-      <div
-        className={`grid gap-2 max-w-xs w-full ${`grid-cols-${currentData.columnCount}`}`}
-      >
+      <div className={`grid gap-2 max-w-xs w-full ${changeColumnCount(currentData.columnCount)}`}>
         {columnsId.length > 0 && columnsId.map((id) => <TextColumn key={id} />)}
       </div>
       {modalStatus && (
