@@ -1,10 +1,5 @@
 import { ReactNode } from "react"
-
-export type InitState = {
-  columnCount?: string
-  text?: string
-  bgColor?: string
-}
+import { InitState } from "../types"
 
 export interface TextModalProps {
   changeModalStatus: () => void
